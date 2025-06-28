@@ -3,7 +3,7 @@ class Animal:
 
     def __init__(
             self, name: str, health: int = 100, hidden: bool = False
-    ) -> None:
+    ):
         self.name = name
         self.health = health
         self.hidden = hidden
@@ -28,6 +28,6 @@ class Carnivore(Animal):
 
         if not herbivore.hidden and isinstance(herbivore, Herbivore):
             herbivore.health -= 50
-        if herbivore.health <= 0:
+        if herbivore.health <= 0 and herbivore in Animal.alive:
             herbivore.health = 0
             Animal.alive.remove(herbivore)
